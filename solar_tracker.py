@@ -7,9 +7,6 @@ ldr2 = ADC(Pin(33))
 ldr3 = ADC(Pin(34))
 ldr4 = ADC(Pin(35))
 
-for ldr in [ldr1, ldr2, ldr3, ldr4]:
-    ldr.atten(ADC.ATTN_11DB)
-
 servo_v = PWM(Pin(13), freq=50)
 servo_h = PWM(Pin(14), freq=50)
 
