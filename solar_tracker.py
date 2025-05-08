@@ -31,15 +31,15 @@ while True:
     left_avg = (val1 + val3) / 2
     right_avg = (val2 + val4) / 2
 
-    if top_avg - bottom_avg > 100 and angle_h < 180:
-        angle_h += 1 #angle_h = angle_h+1
-    elif bottom_avg - top_avg > 100 and angle_h > 0:
-        angle_h -= 1
+    if top_avg - bottom_avg > 200 and angle_h < 180:
+        angle_h += 5 #angle_h = angle_h+1
+    elif bottom_avg - top_avg > 200 and angle_h > 0:
+        angle_h -= 5
 
-    if right_avg - left_avg > 100 and angle_v < 180:
-        angle_v += 1
-    elif left_avg - right_avg > 100 and angle_v > 0:
-        angle_v -= 1
+    if right_avg - left_avg < 200 and angle_v < 180:
+        angle_v += 5
+    elif left_avg - right_avg < 200 and angle_v > 0:
+        angle_v -= 5
 
     move_servo(servo_v, angle_v)
     move_servo(servo_h, angle_h)
