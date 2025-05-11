@@ -32,10 +32,9 @@ while True:
     right_avg = (val2 + val4) / 2
 
     if top_avg - bottom_avg > 200 and angle_h < 180:
-        angle_h += 5 #angle_h = angle_h+1
-    elif bottom_avg - top_avg > 200 and angle_h > 175:
-        angle_h -= 5
-
+        angle_h += 1 #angle_h = angle_h+1
+    elif bottom_avg - top_avg > 200 and angle_h > 170:
+        angle_h -= 1
     if right_avg - left_avg < 200 and angle_v < 180:
         angle_v += 5
     elif left_avg - right_avg < 200 and angle_v > 0:
