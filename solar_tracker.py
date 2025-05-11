@@ -11,7 +11,7 @@ servo_v = PWM(Pin(13), freq=50)
 servo_h = PWM(Pin(14), freq=50)
 
 angle_v = 90
-angle_h = 0
+angle_h = 180
 
 def move_servo(servo, angle):
     duty = int((angle / 180) * 102 + 26)
@@ -31,17 +31,19 @@ while True:
     left_avg = (val1 + val3) / 2
     right_avg = (val2 + val4) / 2
 
-    if top_avg - bottom_avg > 100 and angle_h < 180:
-        angle_h += 1 #angle_h = angle_h+1
-    elif bottom_avg - top_avg > 100 and angle_h > 0:
-        angle_h -= 1
+    if top_avg - bottom_avg > 200 and angle_h < 180:
+        angle_h += 5 #angle_h = angle_h+1
+    elif bottom_avg - top_avg > 200 and angle_h > 175:
+        angle_h -= 5
 
-    if right_avg - left_avg > 100 and angle_v < 180:
-        angle_v += 1
-    elif left_avg - right_avg > 100 and angle_v > 0:
-        angle_v -= 1
+    if right_avg - left_avg < 200 and angle_v < 180:
+        angle_v += 5
+    elif left_avg - right_avg < 200 and angle_v > 0:
+        angle_v -= 5
 
     move_servo(servo_v, angle_v)
     move_servo(servo_h, angle_h)
+    print(angle_h)
 
     sleep(0.1)
+
