@@ -14,7 +14,7 @@ angle_v = 90
 angle_h = 180
 
 def move_servo(servo, angle):
-    duty = int((angle / 180) * 102 + 26)
+    duty = int((angle / 180) * 102 + 25)
     servo.duty(duty)
 
 move_servo(servo_v, angle_v)
